@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Lowin</title>
+	<link rel="stylesheet" href="login/auth.css">
+</head>
+
+<body>
+	<div class="lowin">
+		<div class="lowin-brand">
+			<img src="login/kodinger.jpg" alt="logo">
+		</div>
+		<div class="lowin-wrapper">
+			<div class="lowin-box lowin-login">
+				<div class="lowin-box-inner">
+					<form>
+						<p>Sign in to continue</p>
+						<div class="lowin-group">
+							<label>User <a href="#" class="login-back-link">Sign in?</a></label>
+							<input type="text" id="user" autocomplete="off" name="email" class="lowin-input">
+						</div>
+						<div class="lowin-group password-group">
+							<label>Password <a href="#" class="forgot-link">Forgot Password?</a></label>
+							<input type="password" id="pwd" name="password" autocomplete="current-password" class="lowin-input">
+						</div>
+						<button class="lowin-btn login-btn" id="login">
+							Sign In
+						</button>
+
+						<div class="text-foot">
+							Don't have an account? <a href="" class="register-link">Register</a>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="lowin-box lowin-register">
+				<div class="lowin-box-inner">
+					<form>
+						<p>Let's create your account</p>
+						<div class="lowin-group">
+							<label>Name</label>
+							<input type="text" name="name" autocomplete="name" class="lowin-input">
+						</div>
+						<div class="lowin-group">
+							<label>Email</label>
+							<input type="email" autocomplete="email" name="email" class="lowin-input">
+						</div>
+						<div class="lowin-group">
+							<label>Password</label>
+							<input type="password" name="password" autocomplete="current-password" class="lowin-input">
+						</div>
+						<button class="lowin-btn">
+							Sign Up
+						</button>
+
+						<div class="text-foot">
+							Already have an account? <a href="" class="login-link">Login</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	
+		<footer class="lowin-footer">
+			Design By 自主可控实验室</a>
+		</footer>
+	</div>
+
+	<script src="login/auth.js"></script>
+	<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+	<script>
+		Auth.init({
+			login_url: '#login',
+			forgot_url: '#forgot'
+		});
+	</script>
+
+	<script type="text/javascript">
+		$("#login").click(function(){
+			var user = document.getElementById("user").value;
+			var pwd = document.getElementById("pwd").value;
+			var u = md5(user);
+			var p = md5(pwd)
+			$.ajax({
+				type: "POST",
+				url: "/examation/login",
+				contentType: "application/json;charset=utf-8",
+				data:JSON.stringify({"user":u,"pwd":p}),
+				dataType: "json",
+				error:function (message) {
+					alert("提交失败"+JSON.stringify(message));
+				}
+			});
+		});
+	</script>
+</body>
+</html>
