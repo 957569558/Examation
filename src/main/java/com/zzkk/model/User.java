@@ -1,29 +1,19 @@
 package com.zzkk.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 /**
- * @author mojiayi
+ * @author warmli
  */
+@Data
 public class User {
+    private String uid;
+
     @JsonProperty("user")
-    private String user;
+    private String number;
     @JsonProperty("pwd")
     private String password;
 
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    private String uclass;
 }

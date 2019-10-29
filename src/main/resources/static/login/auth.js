@@ -8,7 +8,7 @@ var Auth = {
 		login_back_link: document.querySelector('.login-back-link'),
 		forgot_link: document.querySelector('.forgot-link'),
 		login_link: document.querySelector('.login-link'),
-		login_btn: document.querySelector('.login-btn'),
+		//login_btn: document.querySelector('.login-btn'),
 		register_link: document.querySelector('.register-link'),
 		password_group: document.querySelector('.password-group'),
 		password_group_height: 0,
@@ -115,22 +115,22 @@ var Auth = {
 			}
 		}
 
-		Auth.vars.forgot_link.addEventListener("click", (e) => {
+		/*Auth.vars.forgot_link.addEventListener("click", (e) => {
 			Auth.forgot(e);
-		});
+		});*/
 
-		Auth.vars.register_link.addEventListener("click", (e) => {
+		/*Auth.vars.register_link.addEventListener("click", (e) => {
 			Auth.brand();
 			Auth.register(e);
-		});
+		});*/
 
-		Auth.vars.login_link.addEventListener("click", (e) => {
+		/*Auth.vars.login_link.addEventListener("click", (e) => {
 			Auth.brand();
 			Auth.login(e);
 		});
 
 		Auth.vars.login_back_link.addEventListener("click", (e) => {
 			Auth.loginback(e);
-		});
+		});*/
 	}
 }

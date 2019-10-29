@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html  xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Lowin</title>
 	<link rel="stylesheet" href="login/auth.css">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -22,15 +23,15 @@
 							<input type="text" id="user" autocomplete="off" name="email" class="lowin-input">
 						</div>
 						<div class="lowin-group password-group">
-							<label>Password <a href="#" class="forgot-link">Forgot Password?</a></label>
 							<input type="password" id="pwd" name="password" autocomplete="current-password" class="lowin-input">
 						</div>
-						<button class="lowin-btn login-btn" id="login">
-							Sign In
-						</button>
+						<div>
+							<label id="errorMsg"></label>
+						</div>
+						<input type="button" class="lowin-btn login-btn" id="login" value="Sign in" />
 
 						<div class="text-foot">
-							Don't have an account? <a href="" class="register-link">Register</a>
+
 						</div>
 					</form>
 				</div>
@@ -70,8 +71,9 @@
 	</div>
 
 	<script src="login/auth.js"></script>
-	<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
-	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+	<script src="index/jquery/jquery.min.js"></script>
+	<script src="index/jquery/jquery.js"></script>
+	<script src="index/jquery.cookie/jquery.cookie.js"></script>
 	<script>
 		Auth.init({
 			login_url: '#login',
@@ -83,16 +85,24 @@
 		$("#login").click(function(){
 			var user = document.getElementById("user").value;
 			var pwd = document.getElementById("pwd").value;
-			var u = md5(user);
-			var p = md5(pwd)
 			$.ajax({
 				type: "POST",
 				url: "/examation/login",
 				contentType: "application/json;charset=utf-8",
-				data:JSON.stringify({"user":u,"pwd":p}),
-				dataType: "json",
+				data:JSON.stringify({"user":user,"pwd":pwd}),
+				success:function (message) {
+					if(message=='error'){
+						alert("账号或密码错误");
+					} else {
+						$.cookie("user", message.responseText);
+						if(user=='root')
+							window.location.href="http://localhost:8080/examation/allExam"
+						else
+							window.location.href="http://localhost:8080/examation/register"
+					}
+				},
 				error:function (message) {
-					alert("提交失败"+JSON.stringify(message));
+					alert("系统错误，请联系管理员处理");
 				}
 			});
 		});
