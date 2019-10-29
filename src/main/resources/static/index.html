@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="index/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Google fonts - Popppins for copy-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,800">
+    <!-- orion icons-->
+    <link rel="stylesheet" href="index/css/orionicons.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="index/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="index/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="index/img/favicon.png?3">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <!-- navbar-->
+    <header class="header">
+      <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i class="fas fa-align-left"></i></a><a href="index.html" class="navbar-brand font-weight-bold text-uppercase text-base">Operation</a>
+        <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
+          <li class="nav-item">
+            <form id="searchForm" class="ml-auto d-none d-lg-block">
+              <div class="form-group position-relative mb-0">
+                <button type="submit" style="top: -3px; left: 0;" class="position-absolute bg-white border-0 p-0"><i class="o-search-magnify-1 text-gray text-lg"></i></button>
+                <input type="search" placeholder="Search ..." class="form-control form-control-sm border-0 no-shadow pl-4">
+              </div>
+            </form>
+          </li>
+
+          </li>
+          <li class="nav-item dropdown ml-auto"><a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="index/img/avatar-6.jpg" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
+            <div aria-labelledby="userInfo" class="dropdown-menu">
+              <!--<div class="dropdown-divider"></div>--><a href="login.html" class="dropdown-item">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="d-flex align-items-stretch">
+      <div id="sidebar" class="sidebar py-3">
+        <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
+        <ul class="sidebar-menu list-unstyled">
+              <li class="sidebar-list-item"><a href="index.html" class="sidebar-link text-muted active"><i class="o-survey-1 mr-3 text-gray"></i><span>Home</span></a></li>
+              <li class="sidebar-list-item"><a href="charts.html" class="sidebar-link text-muted"><i class="o-sales-up-1 mr-3 text-gray"></i><span>Charts</span></a></li>
+              <li class="sidebar-list-item"><a href="tables.html" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-gray"></i><span>Tables</span></a></li>
+              <li class="sidebar-list-item"><a href="forms.html" class="sidebar-link text-muted"><i class="o-home-1 mr-3 text-gray"></i><span>Forms</span></a></li>
+          <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Pages</span></a>
+            <div id="pages" class="collapse">
+              <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page one</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page two</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page three</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page four</a></li>
+              </ul>
+            </div>
+          </li>
+              <li class="sidebar-list-item"><a href="login.html" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-gray"></i><span>Login</span></a></li>
+        </ul>
+        <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS</div>
+        <ul class="sidebar-menu list-unstyled">
+              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>Demo</span></a></li>
+              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Demo</span></a></li>
+              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-paperwork-1 mr-3 text-gray"></i><span>Demo</span></a></li>
+              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Demo</span></a></li>
+        </ul>
+      </div><div class="tlinks">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
+      <div class="page-holder w-100 d-flex flex-wrap">
+        <div class="container-fluid px-xl-5">
+          <section class="py-5">
+            <div class="row">
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0" th:each="exam, eStart:${exam}">
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
+                  <div class="flex-grow-1 d-flex align-items-center">
+                    <div class="dot mr-3 bg-violet"></div>
+                    <div class="text">
+                      <h6 class="mb-0"><span th:text="${exam['ename']}"/></h6><span class="text-gray"><span th:text="${exam['register']} + ' 人'" /></span>
+                    </div>
+                  </div>
+                  <div class="icon text-white bg-violet"></div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
+                  <div class="flex-grow-1 d-flex align-items-center">
+                    <div class="dot mr-3 bg-green"></div>
+                    <div class="text">
+                      <h6 class="mb-0">Open cases</h6><span class="text-gray">32</span>
+                    </div>
+                  </div>
+                  <div class="icon text-white bg-green"></div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
+                  <div class="flex-grow-1 d-flex align-items-center">
+                    <div class="dot mr-3 bg-blue"></div>
+                    <div class="text">
+                      <h6 class="mb-0">Work orders</h6><span class="text-gray">400</span>
+                    </div>
+                  </div>
+                  <div class="icon text-white bg-blue"></div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
+                  <div class="flex-grow-1 d-flex align-items-center">
+                    <div class="dot mr-3 bg-red"></div>
+                    <div class="text">
+                      <h6 class="mb-0">New invoices</h6><span class="text-gray">123</span>
+                    </div>
+                  </div>
+                  <div class="icon text-white bg-red"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="row">
+              <!-- Basic Form-->
+              <div class="col-lg-6 mb-5">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="h6 text-uppercase mb-0">考试录入</h3>
+                  </div>
+                  <div class="card-body">
+                    <form>
+                      <div class="form-group">
+                        <label class="form-control-label text-uppercase">考试名称</label>
+                        <input type="text" id="ename" placeholder="考试名称..." autocomplete="off" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label class="form-control-label text-uppercase">考试日期</label>
+                        <input type="date" id="edate" placeholder="考试日期..." class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label class="form-control-label text-uppercase">考试时间</label>
+                        <input type="time" id="etime" placeholder="考试时间..." class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <input type="button" id="addExamination" value="Add Examination" class="btn btn-primary">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Horizontal Form-->
+              <div class="col-lg-6 mb-5">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="h6 text-uppercase mb-0">考试取消</h3>
+                  </div>
+                  <div class="card-body">
+                    <form class="form-horizontal">
+                      <div class="form-group row">
+                        <label class="col-md-3 form-control-label">考试名称</label>
+                        <div class="col-md-9">
+                          <input id="inputHorizontalSuccess" type="email" placeholder="考试名称..." autocomplete="off" class="form-control form-control-success"><small class="form-text text-muted ml-3">取消本场考试会删除所有相关的报名信息.</small>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-md-9 ml-auto">
+                          <input type="button" value="Cancel exam" class="btn btn-primary">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6 text-center text-md-left text-primary">
+                <p class="mb-2 mb-md-0"></p>
+              </div>
+              <div class="col-md-6 text-center text-md-right text-gray-400">
+                <p class="mb-0"></p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="index/jquery/jquery.min.js"></script>
+    <script src="index/popper.js/umd/popper.min.js"> </script>
+    <script src="index/bootstrap/js/bootstrap.min.js"></script>
+    <script src="index/jquery.cookie/jquery.cookie.js"> </script>
+    <!--<script src="index/chart.js/Chart.min.js"></script>-->
+    <script src="./index/js/js.cookie.min.js"></script>
+    <!--<script src="./index/js/charts-home.js"></script>-->
+    <script src="./index/js/front.js"></script>
+
+    <script type="text/javascript">
+      $("#addExamination").click(function(){
+        var ename = document.getElementById("ename").value;
+        var edate = document.getElementById("edate").value;
+        var etime = document.getElementById("etime").value;
+        $.ajax({
+          type: "POST",
+          url: "/examation/addExam",
+          contentType: "application/json;charset=utf-8",
+          data:JSON.stringify({"ename":ename,"edate":edate,"etime":etime}),
+          headers:{
+            "user":$.cookie("user")
+          },
+          success:function (messgae) {
+            window.location.reload()
+          },
+          error:function (message) {
+            alert("系统错误，请联系管理员处理");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

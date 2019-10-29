@@ -5,7 +5,10 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.zzkk.model.User;
+import com.zzkk.service.UserService;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +19,9 @@ import java.util.Map;
  * @author warmli
  */
 public class WebAppInterceptor implements HandlerInterceptor {
+    @Autowired
+    UserService userService;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         /** 获取token */
@@ -32,7 +38,13 @@ public class WebAppInterceptor implements HandlerInterceptor {
         /** 根据验证器解析token获取信息 */
         DecodedJWT jwt = verifier.verify(token);
         Map<String, Claim> claims = jwt.getClaims();
-
-        return true;
+        Claim user = claims.get("user");
+        Claim pwd = claims.get("password");
+        User u = userService.getUser(user.asString());
+        if(u != null && u.getPassword().equals(pwd)) {
+            System.out.println("token验证...");
+            return true;
+        }
+        return false;
     }
 }

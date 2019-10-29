@@ -17,6 +17,6 @@ public class WebAppConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new WebAppInterceptor())
-                .addPathPatterns("/opop");
+                .addPathPatterns("/addExam");
     }
 }
