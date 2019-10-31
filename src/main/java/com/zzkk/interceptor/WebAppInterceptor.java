@@ -19,14 +19,13 @@ import java.util.Map;
  * @author warmli
  */
 public class WebAppInterceptor implements HandlerInterceptor {
-    @Autowired
-    UserService userService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+        System.out.println("token验证...");
         /** 获取token */
         String token = request.getHeader("token");
-        if(StringUtils.isEmpty(token) || StringUtils.isBlank(token))
+        if(token == null || StringUtils.isEmpty(token) || StringUtils.isBlank(token))
             return false;
 
         /** 构造密钥和验证器 */
@@ -40,11 +39,9 @@ public class WebAppInterceptor implements HandlerInterceptor {
         Map<String, Claim> claims = jwt.getClaims();
         Claim user = claims.get("user");
         Claim pwd = claims.get("password");
-        User u = userService.getUser(user.asString());
-        if(u != null && u.getPassword().equals(pwd)) {
-            System.out.println("token验证...");
-            return true;
-        }
-        return false;
+        System.out.println(user.asString());
+        if(user.asString().equals("root"))
+            return false;
+        return true;
     }
 }

@@ -17,18 +17,6 @@ var Auth = {
 		box: document.getElementsByClassName('lowin-box'),
 		option: {}
 	},
-	register(e) {
-		Auth.vars.lowin_login.className += ' lowin-animated';
-		setTimeout(() => {
-			Auth.vars.lowin_login.style.display = 'none';
-		}, 500);
-		Auth.vars.lowin_register.style.display = 'block';
-		Auth.vars.lowin_register.className += ' lowin-animated-flip';
-
-		Auth.setHeight(Auth.vars.lowin_register.offsetHeight + Auth.vars.lowin_footer.offsetHeight);
-
-		e.preventDefault();
-	},
 	login(e) {
 		Auth.vars.lowin_register.classList.remove('lowin-animated-flip');
 		Auth.vars.lowin_register.className += ' lowin-animated-flipback';

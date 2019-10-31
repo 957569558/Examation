@@ -9,10 +9,6 @@
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="index/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <!-- Google fonts - Popppins for copy-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,800">
     <!-- orion icons-->
     <link rel="stylesheet" href="index/css/orionicons.css">
     <!-- theme stylesheet-->
@@ -21,19 +17,16 @@
     <link rel="stylesheet" href="index/css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="index/img/favicon.png?3">
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <body onload="">
 <!-- navbar-->
 <header class="header">
-    <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="" class="navbar-brand font-weight-bold text-uppercase text-base">Examination Register</a>
+    <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="" class="navbar-brand font-weight-bold text-uppercase text-base">阶段性考试再考报名系统</a>
         <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
             </li>
             <li class="nav-item dropdown ml-auto"><a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="index/img/avatar-6.jpg" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
                 <div aria-labelledby="userInfo" class="dropdown-menu">
-                    <!--<div class="dropdown-divider"></div>--><a href="login.html" class="dropdown-item">Logout</a>
+                    <!--<div class="dropdown-divider"></div>--><a href="/examation/login" class="dropdown-item">Logout</a>
                 </div>
             </li>
         </ul>
@@ -48,82 +41,53 @@
                     <div class="col-lg-8">
                         <div class="card mb-5 mb-lg-0">
                             <div class="card-header">
-                                <h2 class="h6 mb-0 text-uppercase">报名须知</h2>
+                                <h2 class="h6 mb-0 text-uppercase">报名通知</h2>
                             </div>
                             <div class="card-body">
-                                <p class="text-gray mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <div class="d-flex justify-content-between align-items-start align-items-sm-center mb-4 flex-column flex-sm-row">
-                                    <div class="left d-flex align-items-center">
-                                        <div class="icon icon-lg shadow mr-3 text-gray"><i class="fab fa-dropbox"></i></div>
-                                        <div class="text">
-                                            <h6 class="mb-0 d-flex align-items-center"> <span>Dropbox Inc.</span><span class="dot dot-sm ml-2 bg-violet"></span></h6><small class="text-gray">Account renewal</small>
-                                        </div>
-                                    </div>
-                                    <div class="right ml-5 ml-sm-0 pl-3 pl-sm-0 text-violet">
-                                        <h5>-$20</h5>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-start align-items-sm-center mb-4 flex-column flex-sm-row">
-                                    <div class="left d-flex align-items-center">
-                                        <div class="icon icon-lg shadow mr-3 text-gray"><i class="fab fa-apple"></i></div>
-                                        <div class="text">
-                                            <h6 class="mb-0 d-flex align-items-center"> <span>App Store.</span><span class="dot dot-sm ml-2 bg-green"></span></h6><small class="text-gray">Software cost</small>
-                                        </div>
-                                    </div>
-                                    <div class="right ml-5 ml-sm-0 pl-3 pl-sm-0 text-green">
-                                        <h5>-$20</h5>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-start align-items-sm-center mb-4 flex-column flex-sm-row">
-                                    <div class="left d-flex align-items-center">
-                                        <div class="icon icon-lg shadow mr-3 text-gray"><i class="fas fa-shopping-basket"></i></div>
-                                        <div class="text">
-                                            <h6 class="mb-0 d-flex align-items-center"> <span>Supermarket.</span><span class="dot dot-sm ml-2 bg-blue"></span></h6><small class="text-gray">Shopping</small>
-                                        </div>
-                                    </div>
-                                    <div class="right ml-5 ml-sm-0 pl-3 pl-sm-0 text-blue">
-                                        <h5>-$20</h5>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-start align-items-sm-center mb-4 flex-column flex-sm-row">
-                                    <div class="left d-flex align-items-center">
-                                        <div class="icon icon-lg shadow mr-3 text-gray"><i class="fab fa-android"></i></div>
-                                        <div class="text">
-                                            <h6 class="mb-0 d-flex align-items-center"> <span>Play Store.</span><span class="dot dot-sm ml-2 bg-red"></span></h6><small class="text-gray">Software cost</small>
-                                        </div>
-                                    </div>
-                                    <div class="right ml-5 ml-sm-0 pl-3 pl-sm-0 text-red">
-                                        <h5>-$20</h5>
-                                    </div>
-                                </div>
+                                <p th:text="${msg}" class="text-gray mb-5">.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="card mb-5 mb-lg-0">
                         <div class="card-header">
-                            <h2 class="h6 mb-0 text-uppercase">Transaction history</h2>
+                            <h2 class="h6 mb-0 text-uppercase">学生信息</h2>
+                            <h2 class="h6 mb-0 text-uppercase" th:text="${user.getNumber()}"></h2>
+                            <h2 class="h6 mb-0 text-uppercase" th:text="${user.getUname()}"></h2>
                         </div>
                         <div class="card-body">
                             <form class="form-horizontal">
                                 <div class="form-group row">
-                                    <label>考试名称：</label><br/>
-                                        <select name="account" class="form-control">
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
+                                    <label>可报名场次：</label><br/>
+                                        <select id="rename" name="account" class="form-control">
+                                            <option th:each="item:${reg}" th:text="${item.ename}"
+                                                th:value="${item.ename}"></option>
                                         </select>
-
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-9 ml-auto">
-                                        <input type="button" value="Cancel exam" class="btn btn-primary">
+                                        <input type="button" id="registerExam" value="报名" class="btn btn-primary">
+                                    </div>
+                                </div>
+                            </form>
+
+                            <form class="form-horizontal">
+                                <div class="form-group row">
+                                    <label>已报名场次：</label><br/>
+                                    <select id="cename" name="account" class="form-control">
+                                        <option th:each="item:${reged}" th:text="${item.ename}"
+                                                th:value="${item.ename}"></option>
+                                    </select>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-9 ml-auto">
+                                        <input id="cancelExam" type="button" value="取消" class="btn btn-primary">
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
+
                 </div>
             </section>
         </div>
@@ -147,17 +111,60 @@
 <script src="index/bootstrap/js/bootstrap.min.js"></script>
 <script src="index/jquery.cookie/jquery.cookie.js"> </script>
 <!--<script src="index/chart.js/Chart.min.js"></script>-->
-<script src="./index/js/js.cookie.min.js"></script>
+<script src="index/js/js.cookie.min.js"></script>
 <!--<script src="./index/js/charts-home.js"></script>-->
-<script src="./index/js/front.js"></script>
+<script src="index/js/front.js"></script>
 <script src="index/jquery.cookie/jquery.cookie.js"></script>
 <script type="text/javascript">
     function load() {
         var token = $.cookie("token");
         if(token == null)
-            window.location.href="http://localhost:8080/examation/login";
+            window.location.href="http://291.168.2.251/examation/login";
     }
 </script>
 
+<script type="text/javascript">
+    $("#registerExam").click(function(){
+        var ename = document.getElementById("rename").value;
+        $.ajax({
+            type: "POST",
+            url: "/examation/registerExam",
+            contentType: "application/json;charset=utf-8",
+            data:JSON.stringify({"eid":"","ename":ename}),
+            headers:{
+                "token":$.cookie("user")
+            },
+            success:function (message) {
+                alert(message);
+                window.location.reload();
+            },
+            error:function (message) {
+                alert("系统错误，请联系管理员处理");
+            }
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $("#cancelExam").click(function(){
+        var ename = document.getElementById("cename").value;
+        $.ajax({
+            type: "POST",
+            url: "/examation/cancelExam",
+            contentType: "application/json;charset=utf-8",
+            data:JSON.stringify({"eid":"","ename":ename}),
+            headers:{
+                "token":$.cookie("user")
+            },
+            success:function (message) {
+                alert(message);
+                window.location.reload();
+            },
+            error:function (message) {
+                alert("系统错误，请联系管理员处理");
+            }
+        });
+    });
+</script>
 </body>
 </html>

@@ -8,57 +8,28 @@
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
-<body>
+<body onload="">
 	<div class="lowin">
-		<div class="lowin-brand">
-			<img src="login/kodinger.jpg" alt="logo">
-		</div>
 		<div class="lowin-wrapper">
 			<div class="lowin-box lowin-login">
 				<div class="lowin-box-inner">
 					<form>
-						<p>Sign in to continue</p>
+						<p>阶段性考试再考报名系统</p>
 						<div class="lowin-group">
-							<label>User <a href="#" class="login-back-link">Sign in?</a></label>
+							<label>学号：<a href="#" class="login-back-link">Sign in?</a></label>
 							<input type="text" id="user" autocomplete="off" name="email" class="lowin-input">
 						</div>
 						<div class="lowin-group password-group">
+							<label>身份证号：<a href="#" class="login-back-link">Sign in?</a></label>
 							<input type="password" id="pwd" name="password" autocomplete="current-password" class="lowin-input">
 						</div>
 						<div>
 							<label id="errorMsg"></label>
 						</div>
-						<input type="button" class="lowin-btn login-btn" id="login" value="Sign in" />
+						<input type="button" class="lowin-btn login-btn" id="login" value="登 录" />
 
 						<div class="text-foot">
 
-						</div>
-					</form>
-				</div>
-			</div>
-
-			<div class="lowin-box lowin-register">
-				<div class="lowin-box-inner">
-					<form>
-						<p>Let's create your account</p>
-						<div class="lowin-group">
-							<label>Name</label>
-							<input type="text" name="name" autocomplete="name" class="lowin-input">
-						</div>
-						<div class="lowin-group">
-							<label>Email</label>
-							<input type="email" autocomplete="email" name="email" class="lowin-input">
-						</div>
-						<div class="lowin-group">
-							<label>Password</label>
-							<input type="password" name="password" autocomplete="current-password" class="lowin-input">
-						</div>
-						<button class="lowin-btn">
-							Sign Up
-						</button>
-
-						<div class="text-foot">
-							Already have an account? <a href="" class="login-link">Login</a>
 						</div>
 					</form>
 				</div>
@@ -75,10 +46,7 @@
 	<script src="index/jquery/jquery.js"></script>
 	<script src="index/jquery.cookie/jquery.cookie.js"></script>
 	<script>
-		Auth.init({
-			login_url: '#login',
-			forgot_url: '#forgot'
-		});
+
 	</script>
 
 	<script type="text/javascript">
@@ -94,11 +62,14 @@
 					if(message=='error'){
 						alert("账号或密码错误");
 					} else {
-						$.cookie("user", message.responseText);
-						if(user=='root')
-							window.location.href="http://localhost:8080/examation/allExam"
-						else
-							window.location.href="http://localhost:8080/examation/register"
+						$.cookie("user", message);
+						if(user=='root') {
+							window.location.href="http://192.168.2.251:8080/examation/allExam"
+						}
+						else {
+							//192.168.2.251
+							window.location.href = "http://192.168.2.251:8080/examation/register?token="+$.cookie("user")
+						}
 					}
 				},
 				error:function (message) {
@@ -106,6 +77,10 @@
 				}
 			});
 		});
+	</script>
+
+	<script type="text/javascript">
+		$.cookie("user", null);
 	</script>
 </body>
 </html>

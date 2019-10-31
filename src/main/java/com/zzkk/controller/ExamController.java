@@ -1,57 +1,47 @@
 package com.zzkk.controller;
 
 import com.zzkk.model.Examination;
+import com.zzkk.service.ExamService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author warmli
  */
 @Controller
 public class ExamController {
-
-    private List<Examination> generate(){
-        List<Examination> list = new ArrayList<>();
-        Examination e1 = new Examination();
-        Examination e2 = new Examination();
-        e1.setEid("ssss");
-        e1.setEname("2-2");
-        Date now = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        String hehe = dateFormat.format(now);
-        e1.setEdate(hehe);
-        e1.setRegister(1);
-        e2.setEid("aaaa");
-        e2.setEname("3-2");
-        e2.setEdate(hehe);
-        e2.setRegister(1);
-        list.add(e1);
-        list.add(e2);
-        list.add(e1);
-        list.add(e1);
-        list.add(e2);
-        list.add(e1);
-        return list;
-    }
+    @Autowired
+    ExamService examService;
 
     @GetMapping("/allExam")
     public ModelAndView allExam(){
         ModelAndView mv = new ModelAndView();
-        mv.addObject("exam", generate());
+        mv.addObject("exam", examService.allExam());
         mv.setViewName("index");
         return mv;
     }
 
     @PostMapping("/addExam")
-    public boolean addExam(){
-        return true;
+    @ResponseBody
+    public String addExam(@RequestBody Examination exam){
+        System.out.println(exam);
+        String eid = UUID.randomUUID().toString().replaceAll("-","");
+        exam.setEid(eid);
+        exam.setDateTime(exam.getEdate()+" "+exam.getEtime());
+        examService.addExam(exam);
+        return "true";
     }
 
+    @DeleteMapping("/deleteExam")
+    @ResponseBody
+    public String deleteExam(@RequestBody Examination exam){
+        System.out.println(exam);
+        examService.deleteExam(exam.getEname());
+        return "";
+    }
 }

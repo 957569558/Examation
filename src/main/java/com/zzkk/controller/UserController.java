@@ -7,10 +7,9 @@ import com.zzkk.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
@@ -24,6 +23,11 @@ import java.util.Map;
 public class UserController {
     @Autowired
     UserService userService;
+
+    @GetMapping("/userOp")
+    public String UserOp(){
+        return "userOp";
+    }
 
     @GetMapping("/login")
     public ModelAndView login(){
@@ -65,5 +69,18 @@ public class UserController {
                 .sign(algorithm);
 
         return token;
+    }
+
+    @PostMapping("/importUser")
+    public String importUser(@RequestParam(value="upload_file",required=true) MultipartFile upload_file, Model model){
+        String fileName = upload_file.getOriginalFilename();
+        try {
+            userService.importUser(fileName, upload_file);
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("message", "解析文件失败");
+        } finally {
+            return "userOp";
+        }
     }
 }

@@ -9,10 +9,6 @@
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="index/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <!-- Google fonts - Popppins for copy-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,800">
     <!-- orion icons-->
     <link rel="stylesheet" href="index/css/orionicons.css">
     <!-- theme stylesheet-->
@@ -28,7 +24,7 @@
   <body>
     <!-- navbar-->
     <header class="header">
-      <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i class="fas fa-align-left"></i></a><a href="index.html" class="navbar-brand font-weight-bold text-uppercase text-base">Operation</a>
+      <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"></a><a href="index.html" class="navbar-brand font-weight-bold text-uppercase text-base">Operation</a>
         <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
           <li class="nav-item">
             <form id="searchForm" class="ml-auto d-none d-lg-block">
@@ -52,30 +48,12 @@
       <div id="sidebar" class="sidebar py-3">
         <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
         <ul class="sidebar-menu list-unstyled">
-              <li class="sidebar-list-item"><a href="index.html" class="sidebar-link text-muted active"><i class="o-survey-1 mr-3 text-gray"></i><span>Home</span></a></li>
-              <li class="sidebar-list-item"><a href="charts.html" class="sidebar-link text-muted"><i class="o-sales-up-1 mr-3 text-gray"></i><span>Charts</span></a></li>
-              <li class="sidebar-list-item"><a href="tables.html" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-gray"></i><span>Tables</span></a></li>
-              <li class="sidebar-list-item"><a href="forms.html" class="sidebar-link text-muted"><i class="o-home-1 mr-3 text-gray"></i><span>Forms</span></a></li>
-          <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Pages</span></a>
-            <div id="pages" class="collapse">
-              <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page one</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page two</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page three</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page four</a></li>
-              </ul>
-            </div>
-          </li>
-              <li class="sidebar-list-item"><a href="login.html" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-gray"></i><span>Login</span></a></li>
+              <li class="sidebar-list-item"><a href="/examation/allExam" class="sidebar-link text-muted active"><i class="o-survey-1 mr-3 text-gray"></i><span>考试</span></a></li>
+              <li class="sidebar-list-item"><a href="/examation/userOp" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>人员导入</span></a></li>
+              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-gray"></i><span>报名信息导出</span></a></li>
         </ul>
-        <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS</div>
-        <ul class="sidebar-menu list-unstyled">
-              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>Demo</span></a></li>
-              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Demo</span></a></li>
-              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-paperwork-1 mr-3 text-gray"></i><span>Demo</span></a></li>
-              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Demo</span></a></li>
-        </ul>
-      </div><div class="tlinks">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
+      </div>
+      <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS</div>
       <div class="page-holder w-100 d-flex flex-wrap">
         <div class="container-fluid px-xl-5">
           <section class="py-5">
@@ -83,45 +61,12 @@
               <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0" th:each="exam, eStart:${exam}">
                 <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
                   <div class="flex-grow-1 d-flex align-items-center">
-                    <div class="dot mr-3 bg-violet"></div>
+                    <div class="dot mr-3 bg-green"></div>
                     <div class="text">
                       <h6 class="mb-0"><span th:text="${exam['ename']}"/></h6><span class="text-gray"><span th:text="${exam['register']} + ' 人'" /></span>
                     </div>
                   </div>
-                  <div class="icon text-white bg-violet"></div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
-                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
-                  <div class="flex-grow-1 d-flex align-items-center">
-                    <div class="dot mr-3 bg-green"></div>
-                    <div class="text">
-                      <h6 class="mb-0">Open cases</h6><span class="text-gray">32</span>
-                    </div>
-                  </div>
                   <div class="icon text-white bg-green"></div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
-                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
-                  <div class="flex-grow-1 d-flex align-items-center">
-                    <div class="dot mr-3 bg-blue"></div>
-                    <div class="text">
-                      <h6 class="mb-0">Work orders</h6><span class="text-gray">400</span>
-                    </div>
-                  </div>
-                  <div class="icon text-white bg-blue"></div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
-                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
-                  <div class="flex-grow-1 d-flex align-items-center">
-                    <div class="dot mr-3 bg-red"></div>
-                    <div class="text">
-                      <h6 class="mb-0">New invoices</h6><span class="text-gray">123</span>
-                    </div>
-                  </div>
-                  <div class="icon text-white bg-red"></div>
                 </div>
               </div>
             </div>
@@ -141,12 +86,12 @@
                         <input type="text" id="ename" placeholder="考试名称..." autocomplete="off" class="form-control">
                       </div>
                       <div class="form-group">
-                        <label class="form-control-label text-uppercase">考试日期</label>
-                        <input type="date" id="edate" placeholder="考试日期..." class="form-control">
+                        <label class="form-control-label text-uppercase">报名日期</label>
+                        <input type="date" id="edate" placeholder="报名日期..." class="form-control">
                       </div>
                       <div class="form-group">
-                        <label class="form-control-label text-uppercase">考试时间</label>
-                        <input type="time" id="etime" placeholder="考试时间..." class="form-control">
+                        <label class="form-control-label text-uppercase">报名时间</label>
+                        <input type="time" id="etime" placeholder="报名时间..." class="form-control">
                       </div>
                       <div class="form-group">
                         <input type="button" id="addExamination" value="Add Examination" class="btn btn-primary">
@@ -166,12 +111,12 @@
                       <div class="form-group row">
                         <label class="col-md-3 form-control-label">考试名称</label>
                         <div class="col-md-9">
-                          <input id="inputHorizontalSuccess" type="email" placeholder="考试名称..." autocomplete="off" class="form-control form-control-success"><small class="form-text text-muted ml-3">取消本场考试会删除所有相关的报名信息.</small>
+                          <input id="inputHorizontalSuccess" type="text" placeholder="考试名称..." autocomplete="off" class="form-control form-control-success"><small class="form-text text-muted ml-3">取消本场考试会删除所有相关的报名信息.</small>
                         </div>
                       </div>
                       <div class="form-group row">
                         <div class="col-md-9 ml-auto">
-                          <input type="button" value="Cancel exam" class="btn btn-primary">
+                          <input type="button" id="deleteExam" value="Cancel exam" class="btn btn-primary">
                         </div>
                       </div>
                     </form>
@@ -214,9 +159,30 @@
           type: "POST",
           url: "/examation/addExam",
           contentType: "application/json;charset=utf-8",
-          data:JSON.stringify({"ename":ename,"edate":edate,"etime":etime}),
+          data:JSON.stringify({"eid":"","ename":ename,"edate":edate,"etime":etime}),
           headers:{
-            "user":$.cookie("user")
+            "token":$.cookie("user")
+          },
+          success:function (messgae) {
+            window.location.reload()
+          },
+          error:function (message) {
+            alert("系统错误，请联系管理员处理");
+          }
+        });
+      });
+    </script>
+
+    <script type="text/javascript">
+      $("#deleteExam").click(function(){
+        var ename = document.getElementById("inputHorizontalSuccess").value;
+        $.ajax({
+          type: "DELETE",
+          url: "/examation/deleteExam",
+          contentType: "application/json;charset=utf-8",
+          data:JSON.stringify({"ename":ename}),
+          headers:{
+            "token":$.cookie("user")
           },
           success:function (messgae) {
             window.location.reload()
