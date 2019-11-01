@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzkk.mapper.ExamMapper">
+
+    <select id="addExam" parameterType="com.zzkk.model.Examination" resultType="java.lang.Boolean">
+        insert into examination (eid,ename,edate) values(#{eid},#{ename},#{dateTime})
+    </select>
+
+    <delete id="deleteExam" parameterType="java.lang.String">
+        delete from examination WHERE ename=#{ename}
+    </delete>
+
+    <select id="allExam" resultType="com.zzkk.model.Examination">
+        SELECT examination.*,count(register.eid) register from examination,register
+        where examination.eid=register.eid
+        group by register.eid
+    </select>
+
+    <select id="getRegExam" parameterType="java.lang.String" resultType="com.zzkk.model.Examination">
+        SELECT * FROM examination where edate &lt;= #{dateTime}
+    </select>
+
+    <select id="getRegedExam" parameterType="java.lang.String" resultType="com.zzkk.model.Examination">
+        SELECT * FROM examination where eid in
+        (select eid from register where uid =
+        (select uid from user where user.number=#{user}))
+    </select>
+
+    <select id="getExamByNumber" parameterType="java.lang.String" resultType="com.zzkk.model.Examination">
+        select * from examination where ename=#{ename}
+    </select>
+
+</mapper>
