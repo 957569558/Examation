@@ -13,9 +13,10 @@
     </delete>
 
     <select id="allExam" resultType="com.zzkk.model.Examination">
-        SELECT examination.*,count(register.eid) register from examination,register
-        where examination.eid=register.eid
-        group by register.eid
+        select examination.*,count(r.eid) from examination
+          left join (select eid,count(register.rid) from register)r
+          on examination.eid=r.eid
+        group by examination.eid
     </select>
 
     <select id="getRegExam" parameterType="java.lang.String" resultType="com.zzkk.model.Examination">
@@ -28,8 +29,7 @@
         (select uid from user where user.number=#{user}))
     </select>
 
-    <select id="getExamByNumber" parameterType="java.lang.String" resultType="com.zzkk.model.Examination">
+    <select id="getExamByName" parameterType="java.lang.String" resultType="com.zzkk.model.Examination">
         select * from examination where ename=#{ename}
     </select>
-
 </mapper>

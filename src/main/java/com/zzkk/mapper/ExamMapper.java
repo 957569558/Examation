@@ -7,9 +7,11 @@ import java.util.List;
 
 @Repository
 public interface ExamMapper {
-    Examination getExamByNumber(String ename);
+    Examination getExamByName(String ename);
 
     Boolean addExam(Examination exam);
+
+    Integer countExamByName(String ename);
 
     void deleteExam(String ename);
 

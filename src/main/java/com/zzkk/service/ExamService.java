@@ -27,19 +27,23 @@ public class ExamService {
     UserMapper userMapper;
 
     public Boolean addExam(Examination exam){
-        return examMapper.addExam(exam);
+        String ename = exam.getEname();
+        Examination e = examMapper.getExamByName(ename);
+        if(e == null)
+            return examMapper.addExam(exam);
+
+        return false;
     }
 
     @Transactional
     public boolean cancelRegister(Examination exam, String number){
         User user = userMapper.getUser(number);
-        Examination e = examMapper.getExamByNumber(exam.getEname());
-        if(e == null || StringUtils.isEmpty(e.getEid()) || StringUtils.isBlank(e.getEid()))
+        Examination e = examMapper.getExamByName(exam.getEname());
+        if(e == null)
             return false;
 
         if(StringUtils.isEmpty(user.getUid()) || StringUtils.isBlank(user.getUid()))
             return false;
-
 
         registerMapper.cancelRegister(user.getUid(), e.getEid());
         return true;
@@ -48,8 +52,8 @@ public class ExamService {
     @Transactional
     public boolean registerExam(Examination exam, String number){
         User user = userMapper.getUser(number);
-        Examination e = examMapper.getExamByNumber(exam.getEname());
-        if(e == null || StringUtils.isEmpty(e.getEid()) || StringUtils.isBlank(e.getEid()))
+        Examination e = examMapper.getExamByName(exam.getEname());
+        if(e == null)
             return false;
 
         if(StringUtils.isEmpty(user.getUid()) || StringUtils.isBlank(user.getUid()))
