@@ -8,15 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="index/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/index/bootstrap/css/bootstrap.min.css">
     <!-- orion icons-->
-    <link rel="stylesheet" href="index/css/orionicons.css">
+    <link rel="stylesheet" href="static/index/css/orionicons.css">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="index/css/style.default.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="static/index/css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="index/css/custom.css">
+    <link rel="stylesheet" href="static/index/css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="index/img/favicon.png?3">
+    <link rel="shortcut icon" href="static/index/img/favicon.png?3">
 </head>
 <body onload="">
 <!-- navbar-->
@@ -24,9 +24,9 @@
     <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="" class="navbar-brand font-weight-bold text-uppercase text-base">阶段性考试再考报名系统</a>
         <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
             </li>
-            <li class="nav-item dropdown ml-auto"><a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="index/img/avatar-6.jpg" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
+            <li class="nav-item dropdown ml-auto"><a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="static/index/img/avatar-6.jpg" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
                 <div aria-labelledby="userInfo" class="dropdown-menu">
-                    <!--<div class="dropdown-divider"></div>--><a href="/examation/login" class="dropdown-item">Logout</a>
+                    <a href="/examation/login" class="dropdown-item">Logout</a>
                 </div>
             </li>
         </ul>
@@ -106,15 +106,13 @@
     </div>
 </div>
 <!-- JavaScript files-->
-<script src="index/jquery/jquery.min.js"></script>
-<script src="index/popper.js/umd/popper.min.js"> </script>
-<script src="index/bootstrap/js/bootstrap.min.js"></script>
-<script src="index/jquery.cookie/jquery.cookie.js"> </script>
-<!--<script src="index/chart.js/Chart.min.js"></script>-->
-<script src="index/js/js.cookie.min.js"></script>
-<!--<script src="./index/js/charts-home.js"></script>-->
-<script src="index/js/front.js"></script>
-<script src="index/jquery.cookie/jquery.cookie.js"></script>
+<script src="static/index/jquery/jquery.min.js"></script>
+<script src="static/index/popper.js/umd/popper.min.js"> </script>
+<script src="static/index/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/index/jquery.cookie/jquery.cookie.js"> </script>
+<script src="static/index/js/js.cookie.min.js"></script>
+<script src="static/index/js/front.js"></script>
+<script src="static/index/jquery.cookie/jquery.cookie.js"></script>
 <script type="text/javascript">
     function load() {
         var token = $.cookie("token");

@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Lowin</title>
-	<link rel="stylesheet" href="login/auth.css">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="static/login/auth.css">
+	<link rel="icon" href="static/favicon.ico" type="image/x-icon">
 </head>
 
 <body onload="">
@@ -41,10 +41,10 @@
 		</footer>
 	</div>
 
-	<script src="login/auth.js"></script>
-	<script src="index/jquery/jquery.min.js"></script>
-	<script src="index/jquery/jquery.js"></script>
-	<script src="index/jquery.cookie/jquery.cookie.js"></script>
+	<script src="static/login/auth.js"></script>
+	<script src="static/index/jquery/jquery.min.js"></script>
+	<script src="static/index/jquery/jquery.js"></script>
+	<script src="static/index/jquery.cookie/jquery.cookie.js"></script>
 	<script>
 
 	</script>
@@ -64,7 +64,7 @@
 					} else {
 						$.cookie("user", message);
 						if(user=='root') {
-							window.location.href="http://localhost:8080/examation/allExam"
+							window.location.href="http://localhost:8080/examation/allExam?token="+$.cookie("user")
 						}
 						else {
 							//192.168.2.251

@@ -1,8 +1,9 @@
 package com.zzkk.mapper;
 
 import com.zzkk.model.User;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author warmli
@@ -16,4 +17,6 @@ public interface UserMapper {
     Integer countByNumber(String number);
 
     Boolean updateUserByNumber(String number);
+
+    List<User> getRegisterUser(String ename);
 }

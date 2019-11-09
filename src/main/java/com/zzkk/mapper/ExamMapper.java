@@ -4,14 +4,13 @@ import com.zzkk.model.Examination;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface ExamMapper {
     Examination getExamByName(String ename);
 
     Boolean addExam(Examination exam);
-
-    Integer countExamByName(String ename);
 
     void deleteExam(String ename);
 

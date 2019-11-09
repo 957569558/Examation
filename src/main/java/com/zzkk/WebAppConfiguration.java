@@ -5,7 +5,6 @@ import com.zzkk.interceptor.WebAppInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
  * @author warmli
@@ -18,9 +17,9 @@ public class WebAppConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new WebAppInterceptor())
-                .addPathPatterns("/index.html","login.html","register/html","userOp.html");
+                .addPathPatterns("/registerExam","/cancelExam");
 
         registry.addInterceptor(new AdminInterceptor())
-                .addPathPatterns("/addExam");
+                .addPathPatterns("/addExam","/deleteExam");
     }
 }

@@ -20,4 +20,10 @@
         update user set uclass=#{uclass},password=#{password},uname=#{uname} where number=#{number}
     </update>
 
+    <select id="getRegisterUser" parameterType="java.lang.String" resultType="com.zzkk.model.User">
+        select examination.*,count(r.eid) as register from examination
+        left join (select eid from register)r
+        on examination.eid=r.eid
+        group by examination.eid
+    </select>
 </mapper>

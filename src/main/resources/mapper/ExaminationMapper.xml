@@ -13,10 +13,9 @@
     </delete>
 
     <select id="allExam" resultType="com.zzkk.model.Examination">
-        select examination.*,count(r.eid) from examination
-          left join (select eid,count(register.rid) from register)r
-          on examination.eid=r.eid
-        group by examination.eid
+        /*select examination.*,cout(r.eid) from examination left join (select eid,count(register.rid) from register)r on examination.eid=r.eid group by eid*/
+        select * from examination e
+        left join (select count(register.eid) as register,eid from register)r on e.eid=r.eid;
     </select>
 
     <select id="getRegExam" parameterType="java.lang.String" resultType="com.zzkk.model.Examination">

@@ -1,13 +1,14 @@
 package com.zzkk.controller;
 
 import com.zzkk.model.Examination;
+import com.zzkk.model.User;
 import com.zzkk.service.ExamService;
+import com.zzkk.utils.TokenResolve;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -19,8 +20,14 @@ public class ExamController {
     ExamService examService;
 
     @GetMapping("/allExam")
-    public ModelAndView allExam(){
+    public ModelAndView allExam(@RequestParam(value = "token") String token){
         ModelAndView mv = new ModelAndView();
+        User user = TokenResolve.getUser(token);
+        if(user == null){
+            mv.setViewName("login");
+            return mv;
+        }
+
         mv.addObject("exam", examService.allExam());
         mv.setViewName("index");
         return mv;

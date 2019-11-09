@@ -8,15 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="index/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/index/bootstrap/css/bootstrap.min.css">
     <!-- orion icons-->
-    <link rel="stylesheet" href="index/css/orionicons.css">
+    <link rel="stylesheet" href="static/index/css/orionicons.css">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="index/css/style.default.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="static/index/css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="index/css/custom.css">
+    <link rel="stylesheet" href="static/index/css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="index/img/favicon.png?3">
+    <link rel="shortcut icon" href="static/index/img/favicon.png?3">
   </head>
   <body>
     <!-- navbar-->
@@ -24,18 +24,9 @@
       <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"></a><a href="index.html" class="navbar-brand font-weight-bold text-uppercase text-base">Operation</a>
         <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
           <li class="nav-item">
-            <form id="searchForm" class="ml-auto d-none d-lg-block">
-              <div class="form-group position-relative mb-0">
-                <button type="submit" style="top: -3px; left: 0;" class="position-absolute bg-white border-0 p-0"><i class="o-search-magnify-1 text-gray text-lg"></i></button>
-                <input type="search" placeholder="Search ..." class="form-control form-control-sm border-0 no-shadow pl-4">
-              </div>
-            </form>
-          </li>
-
-          </li>
-          <li class="nav-item dropdown ml-auto"><a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="index/img/avatar-6.jpg" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
+          <li class="nav-item dropdown ml-auto"><a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="static/index/img/avatar-6.jpg" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
             <div aria-labelledby="userInfo" class="dropdown-menu">
-              <!--<div class="dropdown-divider"></div>--><a href="login.html" class="dropdown-item">Logout</a>
+              <!--<div class="dropdown-divider"></div>--><a href="login" class="dropdown-item">Logout</a>
             </div>
           </li>
         </ul>
@@ -45,9 +36,9 @@
       <div id="sidebar" class="sidebar py-3">
         <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
         <ul class="sidebar-menu list-unstyled">
-              <li class="sidebar-list-item"><a href="/examation/allExam" class="sidebar-link text-muted active"><i class="o-survey-1 mr-3 text-gray"></i><span>考试</span></a></li>
-              <li class="sidebar-list-item"><a href="/examation/userOp" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>人员导入</span></a></li>
-              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-gray"></i><span>报名信息导出</span></a></li>
+              <li class="sidebar-list-item"><a href="javascript:allExam();" class="sidebar-link text-muted active"><i class="o-survey-1 mr-3 text-gray"></i><span>考试</span></a></li>
+              <li class="sidebar-list-item"><a href="javascript:userOp();" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>人员导入</span></a></li>
+              <li class="sidebar-list-item"><a href="javascript:registerOp();" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-gray"></i><span>报名信息导出</span></a></li>
         </ul>
       </div>
       <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS</div>
@@ -138,14 +129,12 @@
       </div>
     </div>
     <!-- JavaScript files-->
-    <script src="index/jquery/jquery.min.js"></script>
-    <script src="index/popper.js/umd/popper.min.js"> </script>
-    <script src="index/bootstrap/js/bootstrap.min.js"></script>
-    <script src="index/jquery.cookie/jquery.cookie.js"> </script>
-    <!--<script src="index/chart.js/Chart.min.js"></script>-->
-    <script src="./index/js/js.cookie.min.js"></script>
-    <!--<script src="./index/js/charts-home.js"></script>-->
-    <script src="./index/js/front.js"></script>
+    <script src="static/index/jquery/jquery.min.js"></script>
+    <script src="static/index/popper.js/umd/popper.min.js"> </script>
+    <script src="static/index/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/index/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="static/index/js/js.cookie.min.js"></script>
+    <script src="static/index/js/front.js"></script>
 
     <script type="text/javascript">
       $("#addExamination").click(function(){
@@ -189,6 +178,21 @@
           }
         });
       });
+    </script>
+    <script type="text/javascript">
+      function allExam() {
+        window.location.href="/examation/allExam?token="+$.cookie("user")
+      }
+    </script>
+    <script type="text/javascript">
+      function userOp() {
+        window.location.href="/examation/userOp?token="+$.cookie("user")
+      }
+    </script>
+    <script type="text/javascript">
+      function registerOp() {
+        window.location.href="/examation/registerOp?token="+$.cookie("user")
+      }
     </script>
   </body>
 </html>

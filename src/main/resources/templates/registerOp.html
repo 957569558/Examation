@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="static/index/bootstrap/css/bootstrap.min.css">
+    <!-- orion icons-->
+    <link rel="stylesheet" href="static/index/css/orionicons.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="static/index/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="static/index/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="static/index/img/favicon.png?3">
+</head>
+<body>
+<!-- navbar-->
+<header class="header">
+    <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"></a><a href="index.html" class="navbar-brand font-weight-bold text-uppercase text-base">Operation</a>
+        <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
+            <li class="nav-item">
+            <li class="nav-item dropdown ml-auto"><a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="static/index/img/avatar-6.jpg" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
+                <div aria-labelledby="userInfo" class="dropdown-menu">
+                    <a href="login.html" class="dropdown-item">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="d-flex align-items-stretch">
+    <div id="sidebar" class="sidebar py-3">
+        <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
+        <ul class="sidebar-menu list-unstyled">
+            <li class="sidebar-list-item"><a href="javascript:allExam();" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-gray"></i><span>考试</span></a></li>
+            <li class="sidebar-list-item"><a href="javascript:userOp();" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>人员导入</span></a></li>
+            <li class="sidebar-list-item"><a href="javascript:registerOp();" class="sidebar-link text-muted active"><i class="o-table-content-1 mr-3 text-gray"></i><span>报名信息导出</span></a></li>
+        </ul>
+    </div>
+    <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS</div>
+    <div class="page-holder w-100 d-flex flex-wrap">
+        <div class="container-fluid px-xl-5">
+            <br/><br/><br/>
+            <section>
+                <div class="row">
+                    <!-- Basic Form-->
+                    <div class="col-lg-6 mb-5">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="h6 text-uppercase mb-0">信息导出</h3>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label class="form-control-label text-uppercase">考试名称</label>
+                                        <input type="text" id="ename" placeholder="考试名称..." autocomplete="off" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="button" id="exportRegister" value="export" class="btn btn-primary">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-left text-primary">
+                        <p class="mb-2 mb-md-0"></p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-right text-gray-400">
+                        <p class="mb-0"></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<!-- JavaScript files-->
+<script src="static/index/jquery/jquery.min.js"></script>
+<script src="static/index/popper.js/umd/popper.min.js"> </script>
+<script src="static/index/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/index/jquery.cookie/jquery.cookie.js"> </script>
+<script src="static/index/js/js.cookie.min.js"></script>
+<script src="static/index/js/front.js"></script>
+
+<script type="text/javascript">
+    $("#exportRegister").click(function(){
+        var ename = document.getElementById("ename").value;
+        if(ename != '')
+            window.location.href="/examation/exportRegister?token="+$.cookie("user")+"&&ename="+ename;
+    });
+</script>
+<script type="text/javascript">
+    function allExam() {
+        window.location.href="/examation/allExam?token="+$.cookie("user")
+    }
+</script>
+<script type="text/javascript">
+    function userOp() {
+        window.location.href="/examation/userOp?token="+$.cookie("user")
+    }
+</script>
+<script type="text/javascript">
+    function registerOp() {
+        window.location.href="/examation/registerOp?token="+$.cookie("user")
+    }
+</script>
+</body>
+</html>
